@@ -1,13 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Markazi+Text:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-main: #f2f2f2;
+  --bg-dark: #2d4b45;
+  --bg-dark-alt: #3d5652;
+  --primary-yellow: #f4ce14;
+  --primary-dark: #1d2b2a;
+  --text-dark: #1f1f1f;
+  --text-soft: #4b4b4b;
+  --card-bg: #f3f3f3;
+  --border-soft: #e5e0d8;
+  --shadow-soft: 0 10px 18px rgba(26, 31, 26, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-dark);
+  font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
 }

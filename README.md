@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+#Instructions 
+Step 1: Set up the initial semantic structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Open the App.js file.
 
-## Available Scripts
+The App component’s root element uses a div element. As this is not a semantic tag, replace it with a React fragment.
 
-In the project directory, you can run:
+Tip: Remember, a fragment starts with a <> tag and ends with a </> tag.
 
-### `npm start`
+Review your UI/UX and decide how each of the sections of the design will be represented using semantic tags.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Tip: Use the header, nav, main and footer semantic tags.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Inside the fragment, add the semantic tags.
 
-### `npm test`
+Step 2: Break the sections down into React components
+Now that you have planned your semantic structure, it is important to decide which sections will be dynamically updated and if those sections should be child components of the App component.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tip: For simplicity, you can create a component for each semantic element you added to App.js.
 
-### `npm run build`
+Create a JavaScript file for each semantic element that will be a React component, for example, Header.js, Nav.js, Main.js and Footer.js.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In each component, return the semantic HTML element.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In App.js, replace the semantic tags with the corresponding child components, for example <header></header> will be replaced with <Header/>.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Step 3: Add the logo and navigation elements
+The initial components are now set up. You will now add the details for the logo and navigation.
 
-### `npm run eject`
+Add the Little Lemon logo to the appropriate React component using the <img> tag.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Add the website navigation to the Nav component. It is important to add a hyperlink for each key page of the website based on your mockup.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Tip: Use a <ul> element and add an <li> element for each <a> hyperlink.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Step 4: Add the footer content
+Review your design and add the necessary HTML elements to the footer component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Instructions
+You will apply the following to the index.html file in your project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Step 5: Add the appropriate description (meta tag)
+Add your own description for your Little Lemon restaurant application:
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<meta name="description" content="your text goes here"/>
+Step 6: Add the og:title meta tag
+Add the Open Graph's title for your Little Lemon restaurant application, inside the double quotes in the content HTML attribute:
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<meta name="og:title" content=""/>
+Step 7: Add the og:description meta tag
+Add your own description for your Little Lemon restaurant application, inside the double quotes in the content HTML attribute:
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<meta name="og:description" content=""/>
+Step 8: Add the og:image meta tag
+Add your own Open Graph image for your Little Lemon restaurant application, inside the double quotes in the content HTML attribute:
+<meta name="og:image" content=""/>
