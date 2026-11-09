@@ -1,0 +1,75 @@
+- generic [ref=f2e2]:
+  - banner [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "Little Lemon home" [ref=f2e5] [cursor=pointer]:
+        - /url: /
+        - img "Little Lemon" [ref=f2e6]
+      - navigation "Primary navigation" [ref=f2e7]:
+        - list [ref=f2e8]:
+          - listitem [ref=f2e9]:
+            - link "Home" [ref=f2e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f2e11]:
+            - link "About" [ref=f2e12] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f2e13]:
+            - link "Menu" [ref=f2e14] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=f2e15]:
+            - link "Reservations" [ref=f2e16] [cursor=pointer]:
+              - /url: /reservations
+  - main [ref=f2e17]:
+    - article [ref=f2e18]:
+      - generic [ref=f2e20]:
+        - generic [ref=f2e21]:
+          - paragraph [ref=f2e22]: Our story
+          - heading "About Little Lemon" [level=1] [ref=f2e23]
+          - paragraph [ref=f2e24]: A family-owned Mediterranean kitchen in Chicago, bringing generous hospitality and a modern touch to the recipes we grew up with.
+          - link "Reserve a table" [ref=f2e25] [cursor=pointer]:
+            - /url: /booking
+        - img "A chef arranging fresh Mediterranean appetizers" [ref=f2e26]
+      - generic [ref=f2e27]:
+        - generic [ref=f2e28]:
+          - paragraph [ref=f2e29]: Made for sharing
+          - heading "Rooted in tradition, served with a twist." [level=2] [ref=f2e30]
+          - paragraph [ref=f2e31]: Little Lemon is built around the simple pleasure of gathering around good food. Our kitchen brings together fresh ingredients, familiar Mediterranean flavors and the warmth of a family table.
+          - paragraph [ref=f2e32]: From a relaxed lunch to a special evening out, we make every visit feel welcoming, bright and worth lingering over.
+        - generic [ref=f2e33]:
+          - img "Little Lemon restaurant owners" [ref=f2e34]
+          - img "The Little Lemon team in the kitchen" [ref=f2e35]
+  - contentinfo [ref=f2e36]:
+    - generic [ref=f2e37]:
+      - img "Little Lemon" [ref=f2e39]
+      - generic [ref=f2e40]:
+        - heading "Navigation" [level=4] [ref=f2e41]
+        - list [ref=f2e42]:
+          - listitem [ref=f2e43]:
+            - link "Home" [ref=f2e44] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f2e45]:
+            - link "About" [ref=f2e46] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f2e47]:
+            - link "Menu" [ref=f2e48] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=f2e49]:
+            - link "Reservations" [ref=f2e50] [cursor=pointer]:
+              - /url: /reservations
+      - generic [ref=f2e51]:
+        - heading "Contact" [level=4] [ref=f2e52]
+        - list [ref=f2e53]:
+          - listitem [ref=f2e54]: Chicago, IL
+          - listitem [ref=f2e55]: 312-555-0191
+          - listitem [ref=f2e56]: hello@littlelemon.com
+      - generic [ref=f2e57]:
+        - heading "Social" [level=4] [ref=f2e58]
+        - list [ref=f2e59]:
+          - listitem [ref=f2e60]:
+            - link "Instagram" [ref=f2e61] [cursor=pointer]:
+              - /url: https://www.instagram.com
+          - listitem [ref=f2e62]:
+            - link "Facebook" [ref=f2e63] [cursor=pointer]:
+              - /url: https://www.facebook.com
+          - listitem [ref=f2e64]:
+            - link "X" [ref=f2e65] [cursor=pointer]:
+              - /url: https://x.com

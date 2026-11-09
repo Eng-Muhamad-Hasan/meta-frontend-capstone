@@ -1,28 +1,5 @@
 import { Link } from 'react-router-dom';
-
-const specials = [
-  {
-    name: 'Greek salad',
-    price: '$12.99',
-    description:
-      'The famous greek salad of crispy lettuce, peppers, olives and our Chicago styled feta cheese, garnished with crunchy garlic and rosemary croutons.',
-    image: '/images/greek%20salad.jpg',
-  },
-  {
-    name: 'Bruchetta',
-    price: '$5.99',
-    description:
-      'Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
-    image: '/images/bruchetta.svg',
-  },
-  {
-    name: 'Lemon Dessert',
-    price: '$5.00',
-    description:
-      'This comes straight from grandma\'s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.',
-    image: '/images/lemon%20dessert.jpg',
-  },
-];
+import menuItems from '../data/menuItems';
 
 function Homepage() {
   return (
@@ -47,12 +24,12 @@ function Homepage() {
 
       <section className="specials-section" id="menu">
         <div className="container specials-header">
-          <h3>This week&apos;s specials!</h3>
-          <button type="button" className="secondary-button">Online Menu</button>
+          <h2>This week&apos;s specials!</h2>
+          <Link to="/menu" className="secondary-button">Full Menu</Link>
         </div>
 
         <div className="container cards-grid">
-          {specials.map((item) => (
+          {menuItems.map((item) => (
             <article key={item.name} className="menu-card">
               <img src={item.image} alt={item.name} />
               <div className="card-body">

@@ -27,6 +27,7 @@ function completeReservation() {
 afterEach(() => {
   delete window.fetchAPI;
   delete window.submitAPI;
+  window.localStorage.clear();
 });
 
 test('loads availability for today and refreshes it with the selected date', () => {
@@ -78,6 +79,15 @@ test('submits the reservation and navigates only when the API succeeds', () => {
     guests: '2',
     occasion: 'Birthday',
   });
+  expect(JSON.parse(window.localStorage.getItem('little-lemon-reservations'))).toEqual([
+    expect.objectContaining({
+      date: '2030-01-02',
+      time: '18:00',
+      guests: '2',
+      occasion: 'Birthday',
+      status: 'Confirmed',
+    }),
+  ]);
   expect(screen.getByRole('heading', { name: 'Your reservation is booked.' })).toBeInTheDocument();
 });
 

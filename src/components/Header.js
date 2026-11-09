@@ -28,11 +28,9 @@ function Header() {
         <nav className={`main-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
           <ul>
             <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-            <li><a href="#about" onClick={closeMenu}>About</a></li>
-            <li><a href="#menu" onClick={closeMenu}>Menu</a></li>
-            <li><Link to="/booking" onClick={closeMenu}>Reservations</Link></li>
-            <li><a href="#order" onClick={closeMenu}>Order Online</a></li>
-            <li><a href="#login" onClick={closeMenu}>Login</a></li>
+            <li><Link to="/about" onClick={closeMenu}>About</Link></li>
+            <li><Link to="/menu" onClick={closeMenu}>Menu</Link></li>
+            <li><Link to="/reservations" onClick={closeMenu}>Reservations</Link></li>
           </ul>
         </nav>
       </div>

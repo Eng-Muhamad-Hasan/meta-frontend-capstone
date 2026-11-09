@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes, submitForm as submitBooking } from '../utils/bookingUtils';
+import { saveReservation } from '../utils/reservations';
 
 function initializeBookingState() {
   try {
@@ -38,7 +39,16 @@ function BookingPage() {
   const handleSubmit = (formData) => {
     const success = submitBooking(formData);
     if (success) {
-      navigate('/booking/confirmed', { state: { booking: formData } });
+      let savedReservation;
+      let storageError = '';
+      try {
+        savedReservation = saveReservation(formData);
+      } catch (error) {
+        storageError = 'Your booking was confirmed, but could not be saved to this device.';
+      }
+      navigate('/booking/confirmed', {
+        state: { booking: formData, savedReservation, storageError },
+      });
     }
     return success;
   };

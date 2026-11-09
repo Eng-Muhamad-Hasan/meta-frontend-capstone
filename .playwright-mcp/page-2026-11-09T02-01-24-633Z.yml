@@ -1,0 +1,71 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Little Lemon home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Little Lemon" [ref=e6]
+      - navigation "Primary navigation" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "About" [ref=e12] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e13]:
+            - link "Menu" [ref=e14] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=e15]:
+            - link "Reservations" [ref=e16] [cursor=pointer]:
+              - /url: /reservations
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - paragraph [ref=e21]: Your Little Lemon visits
+          - heading "Your Reservations" [level=1] [ref=e22]
+          - paragraph [ref=e23]: Review the reservations confirmed on this device.
+        - link "Make a reservation" [ref=e24] [cursor=pointer]:
+          - /url: /booking
+      - generic [ref=e25]:
+        - generic [aria-hidden] [ref=e26]: ◷
+        - heading "No reservations yet" [level=2] [ref=e27]
+        - paragraph [ref=e28]: Your confirmed bookings will appear here.
+        - link "Book your first table" [ref=e29] [cursor=pointer]:
+          - /url: /booking
+  - contentinfo [ref=e30]:
+    - generic [ref=e31]:
+      - img "Little Lemon" [ref=e33]
+      - generic [ref=e34]:
+        - heading "Navigation" [level=4] [ref=e35]
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - link "Home" [ref=e38] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e39]:
+            - link "About" [ref=e40] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e41]:
+            - link "Menu" [ref=e42] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=e43]:
+            - link "Reservations" [ref=e44] [cursor=pointer]:
+              - /url: /reservations
+      - generic [ref=e45]:
+        - heading "Contact" [level=4] [ref=e46]
+        - list [ref=e47]:
+          - listitem [ref=e48]: Chicago, IL
+          - listitem [ref=e49]: 312-555-0191
+          - listitem [ref=e50]: hello@littlelemon.com
+      - generic [ref=e51]:
+        - heading "Social" [level=4] [ref=e52]
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - link "Instagram" [ref=e55] [cursor=pointer]:
+              - /url: https://www.instagram.com
+          - listitem [ref=e56]:
+            - link "Facebook" [ref=e57] [cursor=pointer]:
+              - /url: https://www.facebook.com
+          - listitem [ref=e58]:
+            - link "X" [ref=e59] [cursor=pointer]:
+              - /url: https://x.com
