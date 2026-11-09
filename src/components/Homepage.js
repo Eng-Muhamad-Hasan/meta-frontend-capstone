@@ -1,27 +1,26 @@
+import { Link } from 'react-router-dom';
+
 const specials = [
   {
     name: 'Greek salad',
     price: '$12.99',
     description:
       'The famous greek salad of crispy lettuce, peppers, olives and our Chicago styled feta cheese, garnished with crunchy garlic and rosemary croutons.',
-    image:
-      'https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=900&q=80',
+    image: '/images/greek%20salad.jpg',
   },
   {
     name: 'Bruchetta',
     price: '$5.99',
     description:
       'Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
-    image:
-      'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80',
+    image: '/images/bruchetta.svg',
   },
   {
     name: 'Lemon Dessert',
     price: '$5.00',
     description:
       'This comes straight from grandma\'s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.',
-    image:
-      'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=80',
+    image: '/images/lemon%20dessert.jpg',
   },
 ];
 
@@ -37,14 +36,11 @@ function Homepage() {
               We are a family owned Mediterranean restaurant, focused on traditional
               recipes served with a modern twist.
             </p>
-            <a href="/booking" className="primary-button">Reserve a Table</a>
+            <Link to="/booking" className="primary-button">Reserve a Table</Link>
           </div>
 
           <div className="hero-visual" aria-label="Chef plating dishes">
-            <img
-              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80"
-              alt="Little Lemon chef plating gourmet appetizers"
-            />
+            <img src="/images/restauranfood.jpg" alt="Little Lemon chef presenting Mediterranean appetizers" />
           </div>
         </div>
       </section>
@@ -65,7 +61,10 @@ function Homepage() {
                   <span>{item.price}</span>
                 </div>
                 <p>{item.description}</p>
-                <button type="button" className="card-action">Order a delivery <span aria-hidden="true">↗</span></button>
+                <button type="button" className="card-action">
+                  Order a delivery
+                  <img src="/images/Basket.svg" alt="" aria-hidden="true" />
+                </button>
               </div>
             </article>
           ))}

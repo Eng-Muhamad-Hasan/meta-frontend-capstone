@@ -20,7 +20,15 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script src="https://raw.githubusercontent.com/courseraap/capstone/main/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/courseraap/capstone@main/api.js"></script>
+    <script>
+      if (typeof fetchAPI === 'function') {
+        window.fetchAPI = fetchAPI;
+      }
+      if (typeof submitAPI === 'function') {
+        window.submitAPI = submitAPI;
+      }
+    </script>
     <title>Little Lemon | Chicago</title>
   </head>
   <body>

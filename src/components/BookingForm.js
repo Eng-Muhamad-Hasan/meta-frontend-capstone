@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const defaultForm = {
   date: '',
-  time: '17:00',
+  time: '',
   guests: '2',
-  occasion: 'Birthday',
+  occasion: '',
 };
 
-function CustomSelect({ label, name, value, options, onChange, icon }) {
+function CustomSelect({ id, label, name, value, options, onChange, icon }) {
   const [isOpen, setIsOpen] = useState(false);
+  const hasOptions = options.length > 0;
 
   const handleSelect = (nextValue) => {
     onChange({ target: { name, value: nextValue } });
@@ -20,39 +21,58 @@ function CustomSelect({ label, name, value, options, onChange, icon }) {
       <button
         type="button"
         className="custom-select-trigger"
+        disabled={!hasOptions}
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
-        aria-label={label}
+        aria-controls={`${id || name}-options`}
+        aria-label={`${label}${value ? `: ${value}` : ''}`}
       >
         <span className="custom-select-icon" aria-hidden="true">{icon}</span>
-        <span className="custom-select-label">{isOpen ? value : label}</span>
+        <span className="custom-select-label">
+          {value || (hasOptions ? label : 'No available times')}
+        </span>
         <span className="custom-select-chevron" aria-hidden="true">⌃</span>
       </button>
 
-      <div className="custom-select-menu" role="listbox" aria-label={label}>
-        {options.map((option) => (
-          <button
-            key={option}
-            type="button"
-            className={`custom-select-option ${value === option ? 'is-selected' : ''}`}
-            onClick={() => handleSelect(option)}
-            role="option"
-            aria-selected={value === option}
-          >
-            <span className="custom-select-option-marker" aria-hidden="true" />
-            <span>{option}</span>
-          </button>
-        ))}
+      <div
+        id={`${id || name}-options`}
+        className="custom-select-menu"
+        role="listbox"
+        aria-label={label}
+        aria-hidden={!isOpen}
+      >
+        {hasOptions ? options.map((option) => (
+            <button
+              key={option}
+              type="button"
+              className={`custom-select-option ${value === option ? 'is-selected' : ''}`}
+              onClick={() => handleSelect(option)}
+              role="option"
+              aria-selected={value === option}
+              tabIndex={isOpen ? 0 : -1}
+            >
+              <span className="custom-select-option-marker" aria-hidden="true" />
+              <span>{option}</span>
+            </button>
+          )) : (
+            <p className="custom-select-empty" role="option" aria-selected="true">
+              No available times
+            </p>
+          )}
       </div>
 
       <select
-        id={name}
+        id={id || name}
         name={name}
         value={value}
         onChange={onChange}
         className="visually-hidden"
         aria-label={label}
+        aria-hidden="true"
+        tabIndex={-1}
+        required
       >
+        <option value="">{label}</option>
         {options.map((option) => (
           <option key={option} value={option}>{option}</option>
         ))}
@@ -61,9 +81,16 @@ function CustomSelect({ label, name, value, options, onChange, icon }) {
   );
 }
 
-function BookingForm({ availableTimes, submitForm, onDateChange }) {
+function BookingForm({ availableTimes, availabilityError, submitForm, onDateChange }) {
   const [formData, setFormData] = useState(defaultForm);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setFormData((previous) => ({
+      ...previous,
+      time: availableTimes.includes(previous.time) ? previous.time : '',
+    }));
+  }, [availableTimes]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -82,6 +109,7 @@ function BookingForm({ availableTimes, submitForm, onDateChange }) {
     if (!formData.date) return 'Please choose a date.';
     if (!formData.time) return 'Please choose a time.';
     if (Number(formData.guests) < 1 || Number(formData.guests) > 10) return 'Guests must be between 1 and 10.';
+    if (!formData.occasion) return 'Please choose an occasion.';
     return '';
   };
 
@@ -94,7 +122,13 @@ function BookingForm({ availableTimes, submitForm, onDateChange }) {
       return;
     }
 
-    submitForm(formData);
+    try {
+      if (!submitForm(formData)) {
+        setError('We could not complete your reservation. Please check your details and try again.');
+      }
+    } catch (submitError) {
+      setError(submitError.message || 'The booking service is unavailable. Please try again later.');
+    }
   };
 
   return (
@@ -109,12 +143,15 @@ function BookingForm({ availableTimes, submitForm, onDateChange }) {
         required
       />
 
-      <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" name="time" value={formData.time} onChange={handleChange} required>
-        {availableTimes.map((time) => (
-          <option key={time} value={time}>{time}</option>
-        ))}
-      </select>
+      <CustomSelect
+        id="res-time"
+        label="Choose time"
+        name="time"
+        value={formData.time}
+        options={availableTimes}
+        icon="◷"
+        onChange={handleChange}
+      />
 
       <label htmlFor="guests">Number of guests</label>
       <input
@@ -129,6 +166,7 @@ function BookingForm({ availableTimes, submitForm, onDateChange }) {
       />
 
       <CustomSelect
+        id="occasion"
         label="Occasion"
         name="occasion"
         value={formData.occasion}
@@ -137,7 +175,9 @@ function BookingForm({ availableTimes, submitForm, onDateChange }) {
         onChange={handleChange}
       />
 
-      {error ? <p className="form-error" role="alert">{error}</p> : null}
+      {availabilityError || error ? (
+        <p className="form-error" role="alert">{availabilityError || error}</p>
+      ) : null}
 
       <button type="submit" className="primary-button full-width">Make Your Reservation</button>
     </form>

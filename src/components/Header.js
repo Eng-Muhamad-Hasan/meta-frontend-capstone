@@ -10,10 +10,7 @@ function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand" aria-label="Little Lemon home" onClick={closeMenu}>
-          <span className="brand-mark" aria-hidden="true">
-            <span className="brand-core" />
-          </span>
-          <span className="brand-text">LITTLE LEMON</span>
+          <img className="brand-logo" src="/images/Logo.svg" alt="Little Lemon" />
         </Link>
 
         <button

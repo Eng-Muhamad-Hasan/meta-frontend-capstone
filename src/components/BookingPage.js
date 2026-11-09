@@ -3,16 +3,32 @@ import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes, submitForm as submitBooking } from '../utils/bookingUtils';
 
+function initializeBookingState() {
+  try {
+    return { availableTimes: initializeTimes(), error: '' };
+  } catch (error) {
+    return { availableTimes: [], error: error.message };
+  }
+}
+
+function bookingReducer(state, action) {
+  if (!action.date) {
+    return state;
+  }
+
+  try {
+    return { availableTimes: updateTimes(action.date), error: '' };
+  } catch (error) {
+    return { ...state, error: error.message };
+  }
+}
+
 function BookingPage() {
   const navigate = useNavigate();
-  const [availableTimes, dispatch] = useReducer(
-    (state, action) => {
-      if (!action.date) {
-        return state;
-      }
-      return updateTimes(action.date);
-    },
-    initializeTimes()
+  const [{ availableTimes, error }, dispatch] = useReducer(
+    bookingReducer,
+    undefined,
+    initializeBookingState
   );
 
   const handleDateChange = (event) => {
@@ -24,6 +40,7 @@ function BookingPage() {
     if (success) {
       navigate('/booking/confirmed', { state: { booking: formData } });
     }
+    return success;
   };
 
   return (
@@ -37,6 +54,7 @@ function BookingPage() {
       <div className="booking-panel">
         <BookingForm
           availableTimes={availableTimes}
+          availabilityError={error}
           submitForm={handleSubmit}
           onDateChange={handleDateChange}
         />

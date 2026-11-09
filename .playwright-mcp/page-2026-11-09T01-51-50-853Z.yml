@@ -1,0 +1,92 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Little Lemon home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Little Lemon" [ref=e6]
+      - navigation "Primary navigation" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "About" [ref=e12] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e13]:
+            - link "Menu" [ref=e14] [cursor=pointer]:
+              - /url: "#menu"
+          - listitem [ref=e15]:
+            - link "Reservations" [ref=e16] [cursor=pointer]:
+              - /url: /booking
+          - listitem [ref=e17]:
+            - link "Order Online" [ref=e18] [cursor=pointer]:
+              - /url: "#order"
+          - listitem [ref=e19]:
+            - link "Login" [ref=e20] [cursor=pointer]:
+              - /url: "#login"
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: Reservations
+        - heading "Book a table" [level=1] [ref=e25]
+        - paragraph [ref=e26]: Reserve your next Little Lemon dining experience for an evening of Mediterranean flavor.
+      - generic [ref=e28]:
+        - generic [ref=e29]: Choose date
+        - textbox "Choose date" [ref=e30]
+        - generic [ref=e31]:
+          - button "Choose time" [disabled] [ref=e32]:
+            - generic [aria-hidden] [ref=e33]: ◷
+            - generic [ref=e34]: No available times
+            - generic [aria-hidden] [ref=e35]: ⌃
+          - listbox [aria-hidden]:
+            - option [selected]: No available times
+          - combobox [aria-hidden] [ref=e36]
+        - generic [ref=e37]: Number of guests
+        - spinbutton "Number of guests" [ref=e38]: "2"
+        - generic [ref=e39]:
+          - button "Occasion" [ref=e40] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e41]: 🍷
+            - generic [aria-hidden] [ref=e43]: ⌃
+          - listbox [aria-hidden]:
+            - option:
+              - generic: Birthday
+            - option:
+              - generic: Engagement
+            - option:
+              - generic: Anniversary
+          - combobox [aria-hidden] [ref=e44]
+        - alert [ref=e45]: The booking service is unavailable (fetchAPI). Please try again later.
+        - button "Make Your Reservation" [ref=e46] [cursor=pointer]
+  - contentinfo [ref=e47]:
+    - generic [ref=e48]:
+      - img "Little Lemon" [ref=e50]
+      - generic [ref=e51]:
+        - heading "Navigation" [level=4] [ref=e52]
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - link "Home" [ref=e55] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e56]:
+            - link "About" [ref=e57] [cursor=pointer]:
+              - /url: /#about
+          - listitem [ref=e58]:
+            - link "Menu" [ref=e59] [cursor=pointer]:
+              - /url: /#menu
+      - generic [ref=e60]:
+        - heading "Contact" [level=4] [ref=e61]
+        - list [ref=e62]:
+          - listitem [ref=e63]: Chicago, IL
+          - listitem [ref=e64]: 312-555-0191
+          - listitem [ref=e65]: hello@littlelemon.com
+      - generic [ref=e66]:
+        - heading "Social" [level=4] [ref=e67]
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - link "Instagram" [ref=e70] [cursor=pointer]:
+              - /url: https://www.instagram.com
+          - listitem [ref=e71]:
+            - link "Facebook" [ref=e72] [cursor=pointer]:
+              - /url: https://www.facebook.com
+          - listitem [ref=e73]:
+            - link "X" [ref=e74] [cursor=pointer]:
+              - /url: https://x.com

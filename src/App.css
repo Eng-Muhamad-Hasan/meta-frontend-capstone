@@ -24,8 +24,19 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  width: 148px;
   z-index: 15;
+}
+
+.brand-logo {
+  width: 148px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.footer-logo {
+  width: 116px;
+  height: auto;
 }
 
 .brand-mark {
@@ -312,6 +323,12 @@
   border: none;
   font-weight: 700;
   padding: 0;
+  gap: 8px;
+}
+
+.card-action img {
+  width: 16px;
+  height: 16px;
 }
 
 .site-footer {
@@ -435,6 +452,11 @@
   transition: all 0.3s ease;
 }
 
+.custom-select-trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .custom-select.is-open .custom-select-trigger {
   background: #3a504b;
   color: #fff;
@@ -536,6 +558,13 @@
   background: rgba(244, 206, 20, 0.15);
 }
 
+.custom-select-empty {
+  margin: 0;
+  padding: 16px 18px;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -546,6 +575,16 @@
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+.booking-form select.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .full-width {

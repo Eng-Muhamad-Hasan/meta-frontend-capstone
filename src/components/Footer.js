@@ -3,9 +3,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <div className="brand-mark small" aria-hidden="true">
-            <span className="brand-core" />
-          </div>
+          <img className="footer-logo" src="/images/Logo.svg" alt="Little Lemon" />
         </div>
         <div className="footer-column">
           <h4>Navigation</h4>
