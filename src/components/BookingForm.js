@@ -7,6 +7,60 @@ const defaultForm = {
   occasion: 'Birthday',
 };
 
+function CustomSelect({ label, name, value, options, onChange, icon }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSelect = (nextValue) => {
+    onChange({ target: { name, value: nextValue } });
+    setIsOpen(false);
+  };
+
+  return (
+    <div className={`custom-select ${isOpen ? 'is-open' : ''}`}>
+      <button
+        type="button"
+        className="custom-select-trigger"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-label={label}
+      >
+        <span className="custom-select-icon" aria-hidden="true">{icon}</span>
+        <span className="custom-select-label">{isOpen ? value : label}</span>
+        <span className="custom-select-chevron" aria-hidden="true">⌃</span>
+      </button>
+
+      <div className="custom-select-menu" role="listbox" aria-label={label}>
+        {options.map((option) => (
+          <button
+            key={option}
+            type="button"
+            className={`custom-select-option ${value === option ? 'is-selected' : ''}`}
+            onClick={() => handleSelect(option)}
+            role="option"
+            aria-selected={value === option}
+          >
+            <span className="custom-select-option-marker" aria-hidden="true" />
+            <span>{option}</span>
+          </button>
+        ))}
+      </div>
+
+      <select
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="visually-hidden"
+        aria-label={label}
+      >
+        {options.map((option) => (
+          <option key={option} value={option}>{option}</option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 function BookingForm({ availableTimes, submitForm, onDateChange }) {
   const [formData, setFormData] = useState(defaultForm);
   const [error, setError] = useState('');
@@ -74,12 +128,14 @@ function BookingForm({ availableTimes, submitForm, onDateChange }) {
         required
       />
 
-      <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" name="occasion" value={formData.occasion} onChange={handleChange}>
-        <option value="Birthday">Birthday</option>
-        <option value="Anniversary">Anniversary</option>
-        <option value="Other">Other</option>
-      </select>
+      <CustomSelect
+        label="Occasion"
+        name="occasion"
+        value={formData.occasion}
+        options={['Birthday', 'Engagement', 'Anniversary']}
+        icon="🍷"
+        onChange={handleChange}
+      />
 
       {error ? <p className="form-error" role="alert">{error}</p> : null}
 
