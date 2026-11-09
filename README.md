@@ -1,61 +1,135 @@
-#Instructions 
-Step 1: Set up the initial semantic structure
+# 🍋 Little Lemon — Meta Front-End Developer Capstone
 
-Open the App.js file.
+A responsive restaurant website for **Little Lemon**, a family-owned Mediterranean restaurant in Chicago. Explore the restaurant story and menu, reserve a table, and review reservations confirmed in your browser.
 
-The App component’s root element uses a div element. As this is not a semantic tag, replace it with a React fragment.
+---
 
-Tip: Remember, a fragment starts with a <> tag and ends with a </> tag.
+## ✨ Project Highlights
 
-Review your UI/UX and decide how each of the sections of the design will be represented using semantic tags.
+- 📱 Responsive layouts with mobile navigation
+- 🍽️ Dedicated Home, About, Menu, Booking, Confirmation, and Reservations pages
+- 📅 Reservation form with date-based availability from the Little Lemon booking API
+- ✅ Form validation and clear submission feedback
+- 🗂️ Reservations page showing bookings saved in the current browser
+- ♿ Semantic page structure, labeled form controls, keyboard-operable navigation, and visible focus states
+- 🎨 Little Lemon design system with Mediterranean green, lemon yellow, rounded cards, and responsive typography
 
-Tip: Use the header, nav, main and footer semantic tags.
+---
 
-Inside the fragment, add the semantic tags.
+## 📸 Demo Screenshots
 
-Step 2: Break the sections down into React components
-Now that you have planned your semantic structure, it is important to decide which sections will be dynamically updated and if those sections should be child components of the App component.
+<table>
+  <tr>
+    <td align="center">
+      <img src="./public/screenshots/Home.png" width="420" alt="Little Lemon home page" />
+      <p><strong>Home</strong></p>
+    </td>
+    <td align="center">
+      <img src="./public/screenshots/About-page.png" width="420" alt="Little Lemon About page" />
+      <p><strong>About</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./public/screenshots/Menu-page.png" width="420" alt="Little Lemon menu page" />
+      <p><strong>Menu</strong></p>
+    </td>
+    <td align="center">
+      <img src="./public/screenshots/Booking.png" width="420" alt="Little Lemon table booking form" />
+      <p><strong>Booking</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./public/screenshots/Reservations.png" width="420" alt="Little Lemon reservations page" />
+      <p><strong>Reservations</strong></p>
+    </td>
+    <td align="center">
+      <img src="./public/screenshots/Submitting.png" width="420" alt="Little Lemon booking confirmation" />
+      <p><strong>Booking Confirmation</strong></p>
+    </td>
+  </tr>
+</table>
 
-Tip: For simplicity, you can create a component for each semantic element you added to App.js.
+---
 
-Create a JavaScript file for each semantic element that will be a React component, for example, Header.js, Nav.js, Main.js and Footer.js.
+## 🧠 Overview
 
-In each component, return the semantic HTML element.
+Little Lemon brings the restaurant's menu and reservation flow together in one responsive website. Visitors can:
 
-In App.js, replace the semantic tags with the corresponding child components, for example <header></header> will be replaced with <Header/>.
+- Learn about the restaurant and its Mediterranean-inspired story
+- Browse menu items and prices
+- Choose a reservation date, available time, party size, and occasion
+- Submit a booking and view a confirmation
+- Review reservations confirmed on the same browser
 
-Step 3: Add the logo and navigation elements
-The initial components are now set up. You will now add the details for the logo and navigation.
+---
 
-Add the Little Lemon logo to the appropriate React component using the <img> tag.
+## 🧩 Features
 
-Add the website navigation to the Nav component. It is important to add a hyperlink for each key page of the website based on your mockup.
+- Shared navigation and footer across the application
+- Responsive mobile burger menu with animated transitions
+- API-driven available reservation times that update when the selected date changes
+- Native and client-side booking validation
+- Confirmation page shown after successful API submission
+- Browser `localStorage` persistence for confirmed reservation cards
+- Open Graph and page description metadata
+- Existing project assets used for restaurant imagery and branding
 
-Tip: Use a <ul> element and add an <li> element for each <a> hyperlink.
+> **Reservation storage note:** the supplied booking API confirms submissions but does not provide a reservation-history endpoint. The Reservations page therefore shows only bookings saved locally in the current browser; it does not sync between devices or accounts.
 
-Step 4: Add the footer content
-Review your design and add the necessary HTML elements to the footer component.
+---
 
+## 🧱 Architecture
 
+- **Application shell:** React Router routes, shared header, main content, and footer
+- **Pages and components:** focused React components for Home, About, Menu, Booking, Confirmation, and Reservations
+- **Booking state:** `useReducer` manages date-based available times
+- **Booking API:** the supplied Little Lemon API provides availability and submission functions
+- **Reservation history:** browser `localStorage` stores successful booking details for the Reservations page
+- **Styling:** responsive CSS with shared Little Lemon design tokens and component styles
 
-Instructions
-You will apply the following to the index.html file in your project.
+---
 
-Step 5: Add the appropriate description (meta tag)
-Add your own description for your Little Lemon restaurant application:
+## 🛠️ Tech Stack
 
+- **Frontend:** React 19
+- **Routing:** React Router
+- **Styling:** CSS
+- **Booking API:** Little Lemon course API (`fetchAPI` and `submitAPI`)
+- **Testing:** Jest and React Testing Library
+- **Build tooling:** Create React App (`react-scripts`)
 
-<meta name="description" content="your text goes here"/>
-Step 6: Add the og:title meta tag
-Add the Open Graph's title for your Little Lemon restaurant application, inside the double quotes in the content HTML attribute:
+---
 
+## 🚀 Getting Started
 
-<meta name="og:title" content=""/>
-Step 7: Add the og:description meta tag
-Add your own description for your Little Lemon restaurant application, inside the double quotes in the content HTML attribute:
+### Prerequisites
 
+- Node.js and npm
 
-<meta name="og:description" content=""/>
-Step 8: Add the og:image meta tag
-Add your own Open Graph image for your Little Lemon restaurant application, inside the double quotes in the content HTML attribute:
-<meta name="og:image" content=""/>
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm start
+```
+
+The app opens at [http://localhost:3000](http://localhost:3000).
+
+### Run tests
+
+```bash
+npm test -- --watch=false
+```
+
+### Create a production build
+
+```bash
+npm run build
+```
